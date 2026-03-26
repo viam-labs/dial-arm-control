@@ -1,0 +1,22 @@
+{
+  "$schema": "https://dl.viam.dev/module.schema.json",
+  "module_id": "viam:dial-arm-control",
+  "visibility": "public",
+  "url": "",
+  "description": "Modular arm component: dial-arm-control",
+  "applications": null,
+  "markdown_link": "README.md",
+  "entrypoint": "bin/dial-arm-control",
+  "first_run": "",
+  "build": {
+    "build": "make module.tar.gz",
+    "setup": "make setup",
+    "path": "module.tar.gz",
+    "arch": [
+      "linux/amd64",
+      "linux/arm64",
+      "darwin/arm64",
+      "windows/amd64"
+    ]
+  }
+}
