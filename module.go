@@ -258,6 +258,10 @@ func toFloat64(v interface{}) (float64, bool) {
 	return 0, false
 }
 
+func (s *dialArmControlDialArmControl) Status(ctx context.Context) (map[string]interface{}, error) {
+	return s.arm.Status(ctx)
+}
+
 func (s *dialArmControlDialArmControl) Close(context.Context) error {
 	// Put close code here
 	s.cancelFunc()
