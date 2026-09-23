@@ -3,9 +3,9 @@ package main
 import (
 	"context"
 	"dialarmcontrol"
+	arm "go.viam.com/rdk/components/arm"
 	"go.viam.com/rdk/logging"
 	"go.viam.com/rdk/resource"
-	arm "go.viam.com/rdk/components/arm"
 )
 
 func main() {

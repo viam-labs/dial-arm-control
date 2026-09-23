@@ -3,6 +3,7 @@ package dialarmcontrol
 import (
 	"context"
 	"fmt"
+	"time"
 
 	commonpb "go.viam.com/api/common/v1"
 	arm "go.viam.com/rdk/components/arm"
@@ -262,8 +263,23 @@ func (s *dialArmControlDialArmControl) Status(ctx context.Context) (map[string]i
 	return s.arm.Status(ctx)
 }
 
+func (s *dialArmControlDialArmControl) Properties(ctx context.Context, extra map[string]interface{}) (arm.Properties, error) {
+	return s.arm.Properties(ctx, extra)
+}
+
+func (s *dialArmControlDialArmControl) MoveThroughJointPositionsStreamed(ctx context.Context, batches <-chan []arm.TrajectoryPoint, responses chan<- arm.Response, extra map[string]interface{}) error {
+	return s.arm.MoveThroughJointPositionsStreamed(ctx, batches, responses, extra)
+}
+
+func (s *dialArmControlDialArmControl) ManualMode(ctx context.Context, extra map[string]interface{}) (bool, error) {
+	return s.arm.ManualMode(ctx, extra)
+}
+
+func (s *dialArmControlDialArmControl) SetManualMode(ctx context.Context, manualMode bool, enabledFor time.Duration, extra map[string]interface{}) error {
+	return s.arm.SetManualMode(ctx, manualMode, enabledFor, extra)
+}
+
 func (s *dialArmControlDialArmControl) Close(context.Context) error {
-	// Put close code here
 	s.cancelFunc()
 	return nil
 }
